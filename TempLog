@@ -1,0 +1,23 @@
+#!/bin/bash
+
+option1=$1
+
+if [ option1 == 'start' ]; then
+  if [ $(pgrep -af python | grep -c BasicTempLog.py) -eq 0 ]; then
+    python3.4 /home/pi/BasicTempLog/BasicTempLog.py & echo $! > /tmp/BasicTempLog.py.pid
+  else
+    echo 'Temperature log is already running'
+  fi
+elif [ option1 == 'stop' ]; then
+  pid=$(cat /tmp/BasicTempLog.py.pid)
+  kill -15 $pid
+  if [ $! -eq 0 ]; then
+    echo 'BasicTempLog.py exited successfully'
+  else
+    echo 'Try manual kill of process'
+    pgrep -af python | grep BasicTempLog.py
+  fi
+else
+  echo 'That is not an option. Sorry.'
+  echo 'Options are "TempLog start" to start temperature log and "TempLog stop" to kill temperature log process.'
+fi

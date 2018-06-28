@@ -1,0 +1,5 @@
+strang_matl gradient correction is used when left back and right sensor locations are averaged together,
+"Gradient corrections are the negative of the observed gradient detailed in MBraine's ""Gradent Correction Summary.xlsx""",
+Location, Gradient Correction (dec. C)
+strang_matl,-0.0281
+strang_airL,0.00628
