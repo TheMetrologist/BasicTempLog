@@ -175,7 +175,7 @@ while True:
     plt.cla()
     #plot all temperatures
     for n in range(len(scan_CH)):
-        plt.plot(time_vec, CH[scan_CH[n]], colorvec[n], lineWidth=2.0, label=scan_CH[n])
+        plt.plot(time_vec, CH[scan_CH[n]], colorvec[n], lineWidth=2.0, label='Ch '+scan_CH[n])
     #temperature graph setup
     ax1.set_ylim([min(alltemps)-0.25, max(alltemps)+0.25])
     ax1.ticklabel_format(style='plain')
